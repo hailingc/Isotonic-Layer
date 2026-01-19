@@ -11,7 +11,11 @@ In modern large-scale recommendation systems, predicted probabilities are often 
 
 By utilizing a differentiable piecewise linear formulation with non-negative weight constraints, we provide a functional bridge that maps biased observations back to their true underlying utility.
 
-![A toy model to demostrate the non monotonic curve fitting](images/isotonic_layer2.png)
+Following is a demonstration toy model to fit a non monotonic curve.
+<figure>
+  <img src="images/isotonic_layer2.png" alt="Isotonic Layer to fit a non monotonic curve">
+  <figcaption align="center">Isotonic Layer to fit a non monotonic curve</figcaption>
+</figure>
 
 
 
