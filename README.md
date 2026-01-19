@@ -11,7 +11,7 @@ In modern large-scale recommendation systems, predicted probabilities are often 
 
 By utilizing a differentiable piecewise linear formulation with non-negative weight constraints, we provide a functional bridge that maps biased observations back to their true underlying utility.
 
-![A toy model to demostrate the non monotonic curve fitting](pic/isotonic_layer2.png)
+![A toy model to demostrate the non monotonic curve fitting](images/isotonic_layer2.png)
 
 
 
@@ -25,3 +25,31 @@ Modern systems operate in **Multi-Task Learning (MTL)** environments (Click, Lik
 ### Installation
 ```bash
 pip install torch numpy
+```
+
+### Implementation & Source
+The core implementation can be found in [Implementation in Src](src/isotonic_layer.py). You can copy the class directly into a Jupyter Lab environment or import it as a module.
+
+### Basic Usage
+```python
+import torch
+from src.isotonic_layer import IsotonicLayer
+
+# Initialize Layer: Fits a range of logits [-10, 7] 
+# using segments with a step size of 0.5
+iso_layer = IsotonicLayer(
+    units=1, 
+    lower_bound=-10.0, 
+    upper_bound=7.0, 
+    step=0.5
+)
+
+# Example: Calibrating a raw model logit
+raw_logits = torch.tensor([1.2, -0.5, 3.8])
+calibrated_probs = iso_layer(raw_logits)
+
+print(calibrated_probs)
+```
+
+## LICENCE
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
