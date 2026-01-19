@@ -11,6 +11,8 @@ In modern large-scale recommendation systems, predicted probabilities are often 
 
 By utilizing a differentiable piecewise linear formulation with non-negative weight constraints, we provide a functional bridge that maps biased observations back to their true underlying utility.
 
+![A toy model to demostrate the non monotonic curve fitting](pic/isotonic_layer2.png)
+
 
 
 ### Key Innovation: Handling Task Heterogeneity
